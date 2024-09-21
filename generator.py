@@ -2,6 +2,7 @@ from PIL import Image, ImageDraw
 import random
 import argparse
 import dataclasses
+import os
 
 
 @dataclasses.dataclass()
@@ -62,6 +63,8 @@ parser.add_argument("--rainbowfill", action="store_true",
 parser.add_argument("-output", "-o",
                     help="set a save location and name (default: [current_directory]/hitomezashi.png).")
 parser.add_argument("--noshow", action="store_true", help="doesn't show the image after generation")
+parser.add_argument("--license", action="store_true", help="displays the applicable license of this software (GNU "
+                                                           "GPLv3)")
 args = parser.parse_args()
 
 
@@ -183,6 +186,11 @@ if args.fill and not args.rainbowfill:
 if args.color:
     line_color = hexadecimal_to_color_tuple(args.color)
 
+print("""Hitomezashi Generator  Copyright (C) 2024  Lucia Zehentner
+    This program comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions.
+    Provide argument --license to display the applicable license.""")
 im = Image.new("RGB", (width, height), color=bg_color)
 start_coordinates = [find_starts(width, stitch_length), find_starts(height, stitch_length)]
 
@@ -198,5 +206,11 @@ if not args.noshow:
 if args.output:
     print(args.output)
     im.save(args.output)
+if args.license:
+    os.system("cls" if os.name == "nt" else "clear")
+    f = open("LICENSE", "r")
+    license_text = f.read()
+    print(license_text)
+    f.close()
 
 # TODO: change some code documentation to make the workings of some functionalities clearer
