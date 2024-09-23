@@ -48,10 +48,10 @@ color_seed = seed
 color_randomer = random.Random(seed)
 
 parser = argparse.ArgumentParser("python3 generator.py")
-parser.add_argument("-seed", "-s", help="set a generation seed (default: random Int32)")  # OK
-parser.add_argument("-width", help="set the width in px of generated pattern (default: 400px)")  # OK
-parser.add_argument("-height", help="set the height in px of generated pattern (default: 300px)")  # OK
-parser.add_argument("-stitch", help="set the length in px of stitches (default: 25px)")  # OK
+parser.add_argument("-seed", "-s", help="set a generation seed (default: random Int32)")
+parser.add_argument("-width", help="set the width in px of generated pattern (default: 400px)")
+parser.add_argument("-height", help="set the height in px of generated pattern (default: 300px)")
+parser.add_argument("-stitch", help="set the length in px of stitches (default: 25px)")
 parser.add_argument("-fill", "-f", nargs="*", help="set an arbitrary amount of hex color codes to infill the pattern ("
                                                    "default: DISABLED)")
 parser.add_argument("-color", "-c", help="set a hex color code for the line color (default: #FFFFFF)")
