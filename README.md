@@ -54,3 +54,7 @@ The following are some examples of generated patterns with respective the comman
 ![A hitomezashi pattern featuring green lines and a black background](examples/example_4.png)
 
 `python3 generator.py -s 9999`
+
+## License
+
+GNU General Public License v3.
